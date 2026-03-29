@@ -25,7 +25,6 @@ D:\CompuCyber3102062334\Desktop\Prueba-Tecnica-CCL\CCL-Server\CCL-Server\obj\Deb
 D:\CompuCyber3102062334\Desktop\Prueba-Tecnica-CCL\CCL-Server\CCL-Server\obj\Debug\net9.0\staticwebassets.development.json
 D:\CompuCyber3102062334\Desktop\Prueba-Tecnica-CCL\CCL-Server\CCL-Server\obj\Debug\net9.0\staticwebassets.build.endpoints.json
 D:\CompuCyber3102062334\Desktop\Prueba-Tecnica-CCL\CCL-Server\CCL-Server\obj\Debug\net9.0\swae.build.ex.cache
-D:\CompuCyber3102062334\Desktop\Prueba-Tecnica-CCL\CCL-Server\CCL-Server\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 D:\CompuCyber3102062334\Desktop\Prueba-Tecnica-CCL\CCL-Server\CCL-Server\obj\Debug\net9.0\CCL-Server.csproj.Up2Date
 D:\CompuCyber3102062334\Desktop\Prueba-Tecnica-CCL\CCL-Server\CCL-Server\obj\Debug\net9.0\CCL-Server.dll
 D:\CompuCyber3102062334\Desktop\Prueba-Tecnica-CCL\CCL-Server\CCL-Server\obj\Debug\net9.0\refint\CCL-Server.dll
@@ -129,3 +128,4 @@ D:\CompuCyber3102062334\Desktop\Prueba-Tecnica-CCL\CCL-Server\CCL-Server\bin\Deb
 D:\CompuCyber3102062334\Desktop\Prueba-Tecnica-CCL\CCL-Server\CCL-Server\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 D:\CompuCyber3102062334\Desktop\Prueba-Tecnica-CCL\CCL-Server\CCL-Server\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 D:\CompuCyber3102062334\Desktop\Prueba-Tecnica-CCL\CCL-Server\CCL-Server\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\CompuCyber3102062334\Desktop\Prueba-Tecnica-CCL\CCL-Server\CCL-Server\obj\Debug\net9.0\CCL-Server.sourcelink.json

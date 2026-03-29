@@ -23,7 +23,12 @@
           <h3 id="dialog-title" class="text-base font-semibold text-white mb-4">Crear Producto</h3>
 
           <!-- Form -->
-          <form (ngSubmit)="guardarCambios()" [formGroup]="form" class="space-y-4" id="crearProducto">
+          <form
+            (ngSubmit)="guardarCambios()"
+            [formGroup]="form"
+            class="space-y-4"
+            id="crearProducto"
+          >
             <div>
               <label for="nombre" class="block text-sm font-medium text-gray-200 mb-1"
                 >Nombre Producto</label
@@ -32,7 +37,7 @@
                 type="text"
                 id="nombre"
                 name="nombre"
-                [formControl]="form.controls.nombre"
+                formControlName="nombre"
                 class="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 focus:border-red-500 focus:ring focus:ring-red-500/30"
                 placeholder="Nombre del producto"
                 required
@@ -48,7 +53,7 @@
                 id="cantidad"
                 name="cantidad"
                 min="0"
-                [formControl]="form.controls.cantidad"
+                formControlName="cantidad"
                 class="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 focus:border-red-500 focus:ring focus:ring-red-500/30"
                 placeholder="Cantidad"
                 required
@@ -56,6 +61,11 @@
             </div>
           </form>
         </div>
+
+        <div class="px-4">
+          <app-mostrar-errores [errores]="errores" />
+        </div>
+        
 
         <!-- Buttons -->
         <div class="bg-gray-700/25 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
@@ -71,7 +81,6 @@
             command="close"
             commandfor="addProducto"
             class="cursor-pointer mt-3 inline-flex w-full justify-center rounded-md bg-white/10 px-3 py-2 text-sm font-semibold text-white inset-ring inset-ring-white/5 hover:bg-white/20 sm:mt-0 sm:w-auto"
-            
           >
             Cancelar
           </button>

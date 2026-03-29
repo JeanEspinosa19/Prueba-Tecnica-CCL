@@ -38,7 +38,7 @@
               <select
                 id="id"
                 name="id"
-                [formControl]="form.controls.id"
+                formControlName="id"
                 class="w-full cursor-pointer rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 focus:border-red-500 focus:ring focus:ring-red-500/30"
                 placeholder="Poducto"
               >
@@ -46,24 +46,6 @@
                 <option *ngFor="let producto of listaProductos" [ngValue]="producto.id">{{producto.nombre}}</option>
               </select>
             </div>
-
-            <!-- <div>
-              <label for="movimiento" class="block text-sm font-medium text-gray-200 mb-1"
-                >¿Es una entrada o una salida?</label
-              >
-
-              <select
-                id="movimiento"
-                name="movimiento"
-                [formControl]="form.controls.movimiento"
-                class="w-full cursor-pointer rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 focus:border-red-500 focus:ring focus:ring-red-500/30"
-                placeholder="Nombre del producto"
-              >
-                <option selected disabled>Selecciona una Opción</option>
-                <option value="Entrada">Entrada</option>
-                <option value="Salida">Salida</option>
-              </select>
-            </div> -->
 
             <div>
               <label for="precio" class="block text-sm font-medium text-gray-200 mb-1"
@@ -74,13 +56,17 @@
                 id="cantidad"
                 name="cantidad"
                 min="0"
-                [formControl]="form.controls.cantidad"
+                formControlName="cantidad"
                 class="w-full rounded-md border border-gray-600 bg-gray-700 px-3 py-2 text-white placeholder-gray-400 focus:border-red-500 focus:ring focus:ring-red-500/30"
                 placeholder="Cantidad"
                 required
               />
             </div>
           </form>
+        </div>
+
+        <div class="px-4">
+          <app-mostrar-errores [errores]="errores" />
         </div>
 
         <!-- Buttons -->

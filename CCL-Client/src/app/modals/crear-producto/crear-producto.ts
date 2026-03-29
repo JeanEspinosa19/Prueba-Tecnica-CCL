@@ -1,26 +1,27 @@
 import { CommonModule } from '@angular/common';
-import { Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ProductosService } from '../../services/productos';
-import { Producto, productoCreacion } from '../../models/productos.model';
+import { productoCreacion } from '../../models/productos.model';
 import { Router } from '@angular/router';
-import { SwalDirective } from '@sweetalert2/ngx-sweetalert2';
 import Swal from 'sweetalert2';
-import { MatTableDataSource } from '@angular/material/table';
+import { extraerErrores } from '../../general/globalFunctions/extraerErrores';
+import { MostrarErrores } from '../../general/component/mostrar-errores/mostrar-errores';
 
 @Component({
   selector: 'app-crear-producto',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, MostrarErrores],
   templateUrl: './crear-producto.html',
   styleUrl: './crear-producto.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CrearProducto {
   private readonly formBuilder = inject(FormBuilder);
+  private cdr = inject(ChangeDetectorRef);
 
   productoService = inject(ProductosService);
-
   router = inject(Router);
+  errores: string[] = [];
 
   form = this.formBuilder.group({
     nombre: ['', [Validators.required, Validators.maxLength(60)]],
@@ -28,6 +29,7 @@ export class CrearProducto {
   });
 
   guardarCambios() {
+
     let producto = this.form.value as productoCreacion;
     this.productoService.crearProducto(producto).subscribe({
       next: () => {
@@ -45,12 +47,9 @@ export class CrearProducto {
         });
       },
       error: (err) => {
-        if (err.status === 409) {
-          alert('Ya existe un producto con este nombre');
-        } else {
-          console.error(err);
-          alert('Error al crear el producto');
-        }
+        const errores = extraerErrores(err);
+        this.errores = errores;
+        this.cdr.detectChanges();
       },
     });
   }

@@ -5,16 +5,19 @@ import { Router } from '@angular/router';
 import { Producto } from '../../models/productos.model';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
+import { extraerErrores } from '../../general/globalFunctions/extraerErrores';
+import { MostrarErrores } from '../../general/component/mostrar-errores/mostrar-errores';
 
 @Component({
   selector: 'app-movimiento-producto',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, MostrarErrores],
   templateUrl: './movimiento-producto.html',
   styleUrl: './movimiento-producto.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class MovimientoProducto {
   listaProductos: Producto[] = [];
+  errores: string[] = [];
   private readonly formBuilder = inject(FormBuilder);
 
   constructor(
@@ -31,7 +34,6 @@ export class MovimientoProducto {
       next: (productos) => {
         this.listaProductos = productos;
         this.cd.detectChanges();
-        
       },
       error: (err) => console.error('Error al cargar productos', err),
     });
@@ -64,12 +66,9 @@ export class MovimientoProducto {
         });
       },
       error: (err) => {
-        if (err.status === 409) {
-          alert('Ya existe un producto con este nombre');
-        } else {
-          console.error(err);
-          alert('Error al actualizar el producto');
-        }
+        const errores = extraerErrores(err);
+        this.errores = errores;
+        this.cd.detectChanges();
       },
     });
   }

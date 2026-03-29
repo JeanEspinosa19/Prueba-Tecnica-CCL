@@ -30,7 +30,7 @@
   <div
     class="relative w-full overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base text-center px-7"
   >
-    <h2 class="text-lg mb-5 font-bold">Ultimos 5 Productoss</h2>
+    <h2 class="text-lg mb-5 font-bold">Inventario</h2>
     <table
       mat-table
       [dataSource]="productos"
@@ -59,7 +59,14 @@
         <td mat-cell *matCellDef="let producto">
           <button
             type="button"
-            [swal]="{title: 'Confirmar Eliminación', text:'¿Deseas Eliminar Este Registro? No se Podra Recuperar.', showCancelButton: true, confirmButtonColor: '#f8bb86', confirmButtonText: 'Confirmar', icon:'warning'}"
+            [swal]="{
+              title: 'Confirmar Eliminación',
+              text: '¿Deseas Eliminar Este Registro? No se Podra Recuperar.',
+              showCancelButton: true,
+              confirmButtonColor: '#f8bb86',
+              confirmButtonText: 'Confirmar',
+              icon: 'warning',
+            }"
             class="cursor-pointer bg-red-400 text-white p-2 rounded-xs hover:bg-red-500"
             (confirm)="eliminarProducto(producto.id)"
           >

@@ -5,7 +5,7 @@ import { ProductosService } from '../services/productos';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
-import { SwalComponent, SwalDirective } from '@sweetalert2/ngx-sweetalert2';
+import { SwalDirective } from '@sweetalert2/ngx-sweetalert2';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,7 +15,9 @@ import Swal from 'sweetalert2';
   styleUrl: './home.css',
 })
 export default class Home {
+  loading = true;
   productos = new MatTableDataSource<Producto>([]);
+
   tablasColumnas = ['nombre', 'cantidad', 'acciones'];
 
   constructor(private productoService: ProductosService) {}
@@ -29,12 +31,16 @@ export default class Home {
   }
 
   cargarProductos() {
+    this.loading = true;
     this.productoService.obtenerProductos().subscribe({
       next: (productos) => {
-        this.productos.data = productos;
+        this.productos.data = productos; 
       },
-      error: (err) => console.error('Error al actualizar el movimiento del producto', err),
+      error: (err) => {
+        console.error('Error al actualizar el movimiento del producto', err);
+      },
     });
+    this.loading = false;
   }
 
   eliminarProducto(id: number) {
