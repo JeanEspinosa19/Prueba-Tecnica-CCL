@@ -1,19 +1,55 @@
 import { Component, inject } from '@angular/core';
-import { WeatherforecastService } from '../weatherforecast';
+import { Modals } from '../modals/modals';
+import { Producto } from '../models/productos.model';
+import { ProductosService } from '../services/productos';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { CommonModule } from '@angular/common';
+import { SwalComponent, SwalDirective } from '@sweetalert2/ngx-sweetalert2';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [CommonModule, Modals, MatTableModule, MatButtonModule, SwalDirective],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
 export default class Home {
-  wheaterForeCastService = inject(WeatherforecastService);
-  climas: any[] = [];
+  productos = new MatTableDataSource<Producto>([]);
+  tablasColumnas = ['nombre', 'cantidad', 'acciones'];
 
-  constructor() {
-    this.wheaterForeCastService.getClima().subscribe((datos) => {
-      this.climas = datos;
+  constructor(private productoService: ProductosService) {}
+
+  ngOnInit(): void {
+    this.cargarProductos();
+
+    this.productoService.refrescar$.subscribe(() => {
+      this.cargarProductos();
+    });
+  }
+
+  cargarProductos() {
+    this.productoService.obtenerProductos().subscribe({
+      next: (productos) => {
+        this.productos.data = productos;
+      },
+      error: (err) => console.error('Error al actualizar el movimiento del producto', err),
+    });
+  }
+
+  eliminarProducto(id: number) {
+    this.productoService.eliminarProducto(id).subscribe({
+      next: () => {
+        Swal.fire({
+          title: 'Exitoso',
+          text: 'Registro eliminado correctamente',
+          icon: 'success',
+          confirmButtonText: 'Continuar',
+          confirmButtonColor: '#a5dc86',
+        });
+        this.cargarProductos();
+      },
+      error: (err) => console.error('Error al eliminar el producto', err),
     });
   }
 }

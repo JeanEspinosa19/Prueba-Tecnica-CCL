@@ -1,9 +1,77 @@
-<h2>Prueba de Comunicación a</h2>
-@for (clima of climas; track $index) {
-    <div>
-        <div>Fecha: {{clima.date}}</div>
-        <div>Temperatura (c): {{clima.temperatureC}}</div>
-        <div>Resumen: {{clima.summary}}</div>
+<div class="grid grid-cols-[1fr_3fr]">
+  <div class="px-4 py-4 max-w-sm justify-items-center">
+    <div class="w-full rounded overflow-hidden shadow-lg mb-5">
+      <button
+        type="button"
+        command="show-modal"
+        commandfor="addProducto"
+        class="flex items-center gap-2 cursor-pointer px-6 py-4 font-bold text-xl w-full text-center justify-center bg-orange-300 text-white border hover:bg-orange-400"
+      >
+        <span class="material-symbols-outlined"> add_diamond </span>
+        <span>Crear un Producto</span>
+      </button>
     </div>
-    <hr>
-}
+
+    <div
+      class="w-full rounded overflow-hidden shadow-lg mb-5 bg-gradient-to-r from-green-400 to-red-400 text-gray-100 border hover:from-green-500 hover:to-red-500"
+    >
+      <button
+        type="button"
+        command="show-modal"
+        commandfor="movProducto"
+        class="flex items-center gap-2 cursor-pointer px-6 py-4 font-bold text-xl w-full text-center justify-center"
+      >
+        <span class="material-symbols-outlined"> assignment_Add </span>
+        <span>Registrar Entrada/Salida de Productos</span>
+      </button>
+    </div>
+  </div>
+
+  <div
+    class="relative w-full overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base text-center px-7"
+  >
+    <h2 class="text-lg mb-5 font-bold">Ultimos 5 Productoss</h2>
+    <table
+      mat-table
+      [dataSource]="productos"
+      class="w-full text-sm rtl:text-right text-body text-center"
+    >
+      <ng-container
+        matColumnDef="nombre"
+        class="text-sm text-body bg-neutral-secondary-soft border-b rounded-base border-default"
+      >
+        <th mat-header-cell class="px-6 py-3 font-medium" *matHeaderCellDef>Producto</th>
+        <td mat-cell *matCellDef="let producto">{{ producto.nombre }}</td>
+      </ng-container>
+      <ng-container
+        matColumnDef="cantidad"
+        class="text-sm text-body bg-neutral-secondary-soft border-b rounded-base border-default"
+      >
+        <th mat-header-cell class="px-6 py-3 font-medium" *matHeaderCellDef>Cantidad</th>
+        <td mat-cell *matCellDef="let producto">{{ producto.cantidad }}</td>
+      </ng-container>
+
+      <ng-container
+        matColumnDef="acciones"
+        class="text-sm text-body bg-neutral-secondary-soft border-b rounded-base border-default"
+      >
+        <th mat-header-cell class="px-6 py-3 font-medium" *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let producto">
+          <button
+            type="button"
+            [swal]="{title: 'Confirmar Eliminación', text:'¿Deseas Eliminar Este Registro? No se Podra Recuperar.', showCancelButton: true, confirmButtonColor: '#f8bb86', confirmButtonText: 'Confirmar', icon:'warning'}"
+            class="cursor-pointer bg-red-400 text-white p-2 rounded-xs hover:bg-red-500"
+            (confirm)="eliminarProducto(producto.id)"
+          >
+            <span class="material-symbols-outlined"> delete </span>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="tablasColumnas"></tr>
+      <tr mat-row *matRowDef="let row; columns: tablasColumnas"></tr>
+    </table>
+  </div>
+</div>
+
+<app-modals />
