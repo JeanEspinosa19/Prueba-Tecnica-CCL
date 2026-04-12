@@ -2,6 +2,12 @@ Pasos a Seguir.txt
 .vs/
 wwwroot/lib/
 
+<<<<<<< HEAD
 #temporales c#
 CCL-Server/**/bin/
 CCL-Server/**/obj/
+=======
+# Ignora archivos temporales
+**/bin/
+**/obj/
+>>>>>>> Feature/Sistema-Inventarios
