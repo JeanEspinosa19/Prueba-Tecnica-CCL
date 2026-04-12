@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\CompuCyber3102062334\\Desktop\\Prueba-Tecnica-CCL\\CCL-Server\\CCL-Server\\CCL-Server.csproj": {}
+    "d:\\CompuCyber3102062334\\Desktop\\Prueba-Tecnica-CCL\\CCL-Server\\CCL-Server\\CCL-Server.csproj": {}
   },
   "projects": {
-    "D:\\CompuCyber3102062334\\Desktop\\Prueba-Tecnica-CCL\\CCL-Server\\CCL-Server\\CCL-Server.csproj": {
+    "d:\\CompuCyber3102062334\\Desktop\\Prueba-Tecnica-CCL\\CCL-Server\\CCL-Server\\CCL-Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\CompuCyber3102062334\\Desktop\\Prueba-Tecnica-CCL\\CCL-Server\\CCL-Server\\CCL-Server.csproj",
+        "projectUniqueName": "d:\\CompuCyber3102062334\\Desktop\\Prueba-Tecnica-CCL\\CCL-Server\\CCL-Server\\CCL-Server.csproj",
         "projectName": "CCL-Server",
-        "projectPath": "D:\\CompuCyber3102062334\\Desktop\\Prueba-Tecnica-CCL\\CCL-Server\\CCL-Server\\CCL-Server.csproj",
+        "projectPath": "d:\\CompuCyber3102062334\\Desktop\\Prueba-Tecnica-CCL\\CCL-Server\\CCL-Server\\CCL-Server.csproj",
         "packagesPath": "C:\\Users\\CompuCyber3102062334\\.nuget\\packages\\",
-        "outputPath": "D:\\CompuCyber3102062334\\Desktop\\Prueba-Tecnica-CCL\\CCL-Server\\CCL-Server\\obj\\",
+        "outputPath": "d:\\CompuCyber3102062334\\Desktop\\Prueba-Tecnica-CCL\\CCL-Server\\CCL-Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
