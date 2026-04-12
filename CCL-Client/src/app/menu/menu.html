@@ -1,8 +1,8 @@
 <nav
-  class="relative bg-gradient-to-r from-orange-500 to-red-500 fixed w-full z-20 top-0 start-0 border-b border-default"
+  class="relative bg-gradient-to-r from-amber-400 to-red-600 fixed w-full z-20 top-0 start-0 border-b border-default "
 >
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-    <a href="/" class="flex text-white items-center space-x-3 rtl:space-x-reverse">
+    <a routerLink="/" class="flex text-white items-center space-x-3 rtl:space-x-reverse">
       <mat-icon>inventory</mat-icon>
       <span class="self-center text-xl text-heading font-semibold whitespace-nowrap"
         >CCL - Sistema de Inventario</span
@@ -35,40 +35,43 @@
     </button>
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
       <ul
-        class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-none rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary text-center"
+        class="font-medium flex flex-col items-center md:items-stretch p-4 md:p-0 mt-4 border border-none rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary text-center"
       >
         <li>
           <a
             routerLink="/"
             routerLinkActive="block py-2 px-3 text-white bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0"
             [routerLinkActiveOptions]="{ exact: true }"
-            class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary  md:border-0 md:p-0 hover:bg-red-600"
-            >Inicio</a
+            class="flex items-center gap-2 py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:border-0 md:p-0 hover:bg-red-600"
           >
+            <mat-icon>home</mat-icon>Inicio
+          </a>
         </li>
-        <li>
-          <a
-            routerLink="productos"
-            routerLinkActive="block py-2 px-3 text-white bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0"
-            class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary  md:border-0 md:p-0 hover:bg-red-600"
-            >Productos</a
-          >
-        </li>
-        <li>
-          <a
-            href="#"
-            class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary  md:border-0 md:p-0 hover:bg-red-600"
-            >Services</a
-          >
-        </li>
-        
-        <li>
-          <a
-            href="#"
-            class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary  md:border-0 md:p-0 hover:bg-red-600"
-            >Iniciar Sesión</a
-          >
-        </li>
+
+        <div action="" class="flex">
+          @if (!isLogged) {
+            <li>
+              <button
+                routerLink="login"
+                routerLinkActive="block py-2 px-3 text-white bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0"
+                class="flex items-center cursor-pointer gap-2 py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:border-0 md:p-0 hover:bg-red-600"
+              >
+                <mat-icon>account_circle</mat-icon>Iniciar Sesión
+              </button>
+            </li>
+          } @else {
+            <li>
+              <button
+                routerLink="#"
+                routerLinkActive="block py-2 px-3 text-white bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0"
+                class="flex items-center cursor-pointer gap-2 py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:border-0 md:p-0 hover:bg-red-600"
+                (click)="logOut()"
+              >
+                <mat-icon>logout</mat-icon>Cerrar Sesión
+              </button>
+            </li>
+          }
+        </div>
       </ul>
     </div>
   </div>

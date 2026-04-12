@@ -1,3 +1,4 @@
 export const environment = {
-    apiURL: 'XXXXX'
+    apiURL: 'XXXXX',
+    authURL: 'XXXXX/auth'
 };

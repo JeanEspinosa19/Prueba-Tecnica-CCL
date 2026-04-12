@@ -1,11 +1,13 @@
 ﻿using CCL_Server.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CCL_Server.Controllers
 {
     [Route("productos/")]
     [ApiController]
+        
     public class productoController : ControllerBase
     {
         private readonly AplicationDB context;
@@ -13,13 +15,14 @@ namespace CCL_Server.Controllers
         {
             this.context = context;
         }
-
+        [Authorize(Roles = "Admin,Viewer")]
         [HttpGet("inventario", Name = "Inventario")]
-        public async Task<List<Producto>> Get()
+        public async Task<ActionResult<List<Producto>>> Get()
         {
             return await context.productos.ToListAsync();
         }
 
+        [Authorize(Roles = "Admin,Viewer")]
         [HttpGet("inventario/{id:int}", Name = "obtenerProductoId")]
         public async Task<ActionResult<Producto>> Get(int id)
         {
@@ -31,7 +34,7 @@ namespace CCL_Server.Controllers
             }
             return producto;
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost("movimiento")]
         public async Task<IActionResult> Post([FromBody] Producto producto)
         {
@@ -49,6 +52,7 @@ namespace CCL_Server.Controllers
             return CreatedAtRoute("obtenerProductoId", new { id = producto.id }, producto);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPatch("movimiento/{id:int}")]
         public async Task<ActionResult> Patch(int id, [FromBody] ActualizarCantidadDTO producto)
         {
@@ -87,6 +91,7 @@ namespace CCL_Server.Controllers
 
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("depuracion/{id:int}")]
         public async Task<ActionResult> Delete(int id)
         {
