@@ -3,5 +3,5 @@ Pasos a Seguir.txt
 wwwroot/lib/
 
 #temporales c#
-obj/
-bin/
+CCL-Server/**/bin/
+CCL-Server/**/obj/
