@@ -1,3 +1,7 @@
 Pasos a Seguir.txt
 .vs/
 wwwroot/lib/
+
+#temporales c#
+obj/
+bin/

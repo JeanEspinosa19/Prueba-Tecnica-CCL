@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CCL-Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+99ece611e9a179e70677354a8a10f2b8e94c2b9c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+306e67ec97baae9ff550b4304dc98e1e046ecb05")]
 [assembly: System.Reflection.AssemblyProductAttribute("CCL-Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CCL-Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

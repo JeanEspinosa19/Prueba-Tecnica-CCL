@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "CCL_Server.Controllers.authController",
+    "Method": "Login",
+    "RelativePath": "auth",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "CCL_Server.Entities.Usuarios",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CCL_Server.Controllers.productoController",
     "Method": "Delete",
     "RelativePath": "productos/depuracion/{id}",
@@ -99,26 +115,5 @@
       }
     ],
     "ReturnTypes": []
-  },
-  {
-    "ContainingType": "CCL_Server.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[CCL_Server.WeatherForecast, CCL-Server, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ],
-    "EndpointName": "GetWeatherForecast"
   }
 ]
