@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CCL-Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5c411d7def445b67526d4680748a415af779c7c3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+face550911dc99bff2c98a4980a8322170f58535")]
 [assembly: System.Reflection.AssemblyProductAttribute("CCL-Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CCL-Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
