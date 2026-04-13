@@ -55,13 +55,13 @@ Con esto ya configurado se debe ingresar a la terminal (CMD) a la ruta principal
 
 # Vista Inicial de la Aplicación
 
-Cuando se inicia la aplicación el primer apartado a visualizar es una pagina invitando el usuario iniciar sesión, (Si no se accede no se podrá acceder al sistema de inventarios).
+Cuando se inicia la aplicación el primer apartado a visualizar es una pagina invitando el usuario iniciar sesión (si no se inicia sesión no se podrá acceder al sistema de inventarios).
 
 ![Inicio Aplicacion](img/inicio.png)
 
 En el inicio de sesión solo existen dos usuarios autorizados para ingresar a la aplicación, los cuales son:
 
-<span style="color:#BA2B11; font-weight:bold;">Usuario ADMIN</span>
+$${\color{#BA2B11} Usuario \space ADMIN}$$
 
 Este usuario permite consultar el inventario y cuenta con todas las acciones disponibles para registrar, modificar o eliminar un producto.
 
@@ -69,7 +69,7 @@ Este usuario permite consultar el inventario y cuenta con todas las acciones dis
 
 **Clave:** Access26*
 
-<span style="color:#D1B71D; font-weight:bold;">Usuario VIEWER</span>
+$${\color{#D1B71D} Usuario \space VIEWER}$$
 
 Este usuario al igual que el usuario **ADMIN** permite consultar el inventario de los productos, sin embargo no cuenta con las acciones requeridas para manipular la información (registrar, modificar y eliminar).
 
